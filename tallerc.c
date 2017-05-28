@@ -7,7 +7,9 @@ void imprimirCifrado(char frase[], int llave);
 int main(int argc, char **argv){
 	char cadena[100];
 	int llave;
-	
+
+	printf("%s + %s\n", argv[1], argv[2]);
+	/*
 	printf("Ingrese frase: ");
 	fgets(cadena, 100, stdin);
 	
@@ -15,7 +17,7 @@ int main(int argc, char **argv){
 	llave = getchar() - '0';
     
 	imprimirCifrado(cadena, llave);
-
+	*/
 	return 0;
 }
 
