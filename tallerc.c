@@ -8,16 +8,16 @@ int main(int argc, char **argv){
 	char cadena[100];
 	int llave;
 
-	printf("%s + %s\n", argv[1], argv[2]);
+	printf("%s + %c\n", argv[1], argv[2][0]);
 	/*
 	printf("Ingrese frase: ");
 	fgets(cadena, 100, stdin);
 	
 	printf("Ingrese llave: ");
 	llave = getchar() - '0';
-    
-	imprimirCifrado(cadena, llave);
-	*/
+    */
+	imprimirCifrado(argv[1], argv[2][0] - '0');
+	
 	return 0;
 }
 
@@ -29,7 +29,7 @@ void imprimirCifrado(char cadena[], int llave){
 		if ((cadena[i] >= 65 && cadena[i] <= 90) || (cadena[i] >= 97 && cadena[i] <= 122) ){
 			new_cadena[i] = (int) cadena[i] + llave;
 			if ((new_cadena[i] > 90 && new_cadena[i] < 97) || (new_cadena[i] > 122)){
-				new_cadena[i] = new_cadena[i] - 24;
+				new_cadena[i] = new_cadena[i] - 26;
 			}
 		}else{
 			new_cadena[i] = (int) cadena[i];
