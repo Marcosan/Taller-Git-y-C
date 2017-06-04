@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-void imprimirCifrado(char frase[], int llave);
+void imprimirCifrado(char cadena[], int llave);
+void imprimirMorse(char cadena[]);
 
 
 int main(int argc, char **argv){
@@ -9,14 +10,16 @@ int main(int argc, char **argv){
 	int llave;
 
 	printf("%s + %c\n", argv[1], argv[2][0]);
-	/*
+	
 	printf("Ingrese frase: ");
 	fgets(cadena, 100, stdin);
 	
 	printf("Ingrese llave: ");
-	llave = getchar() - '0';
-    */
-	imprimirCifrado(argv[1], argv[2][0] - '0');
+	//llave = getchar() - '0';
+	scanf("%d",&llave);
+    
+	//imprimirCifrado(argv[1], argv[2][0] - '0');
+	imprimirCifrado(cadena, llave);
 	
 	return 0;
 }
@@ -36,4 +39,8 @@ void imprimirCifrado(char cadena[], int llave){
 		}
 		printf("%c", new_cadena[i]);
 	}
+}
+
+void imprimirMorse(char cadena[]){
+
 }
