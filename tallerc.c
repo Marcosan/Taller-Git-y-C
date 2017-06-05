@@ -11,10 +11,11 @@ void print_matrix();
 
 
 int main(int argc, char **argv){
-	char cadena[100];
+	char cadena[20];
 	int llave;
 	char tipo;
 	char *autollave;
+	char cadena2[10];
 	char llave2[20];
 
 	//printf("%d + %d + %s\n", argv[1], argv[2], argv[3]);
@@ -46,7 +47,7 @@ int main(int argc, char **argv){
 		case 'a':
 		printf("Cifrado Auto Llave.\n");
 			printf("Ingrese frase: ");
-			fgets(cadena, 100, stdin);
+			fgets(cadena2, 10, stdin);
 			//scanf("%s",&cadena);
 
 			printf("Ingrese llave: ");
@@ -54,8 +55,8 @@ int main(int argc, char **argv){
 			fgets(llave2, 20, stdin);
 			//scanf("%d",&llave);
 			//while(getchar() != '\n');
-			autollave = cifradoAutollave(cadena,llave2);
-			printf("hola2\n");
+			autollave = cifradoAutollave(cadena2,llave2);
+			printf("Texto cifrado: %s\n", autollave);
 			break;
 		case 3:
 			printf("Ha ingresado el numero tres\n");
@@ -106,18 +107,17 @@ char* cifradoAutollave(char* mensaje, char* llave){
 	int m=26, n=26, i, j;
 	int letra = 65;
 
-	char *tab_recta[26];
+	char tab_recta[26][26];
     //char **tmp;// = malloc(30 * sizeof(char*));;//[26][26];
     //tmp=(char*)malloc(n*sizeof(char));
-
 	//Llenar Matriz
     for (i = 0; i < m; i++){
         for (j = 0; j < n; j++){        	
         	if(letra > 90){
         		letra = 65;
         	}
-        	//printf("hola\n");
-        	*((char *)tab_recta + (i * 27) + j) = (char)letra++;
+        	//*((char *)tab_recta + (i * 27) + j) = (char)letra++;
+        	*(tab_recta[i] + j) = (char) letra++;
         }
         letra = 65 + i + 1;
     }
@@ -125,13 +125,12 @@ char* cifradoAutollave(char* mensaje, char* llave){
 	for (i=0; i < m; i++){
         for (j=0; j < n;j ++){
         	
-            printf("%c ", *((char *)tab_recta + (i * 27) + j));
+            printf("%c ", *(tab_recta[i] + j));
         }
         printf("\n");
     }
-    printf("%s\n", llave);
     
-	return retornar;
+	return mensaje;
 }
 
 char* cifradoContrasenia(char* mensaje, char* llave){
