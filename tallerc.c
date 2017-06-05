@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
-void imprimirCifrado(char cadena[], int llave);
+void cifradoCiclico(char cadena[], int llave);
 void imprimirMorse(char cadena[]);
+char* cifradoAutollave(char* mensaje, char* llave);
+char* cifradoContraseña(char* mensaje, char* llave);
 
 
 int main(int argc, char **argv){
@@ -22,11 +24,11 @@ int main(int argc, char **argv){
 		printf("Ingrese llave: ");
 		//llave = getchar() - '0';
 		scanf("%d",&llave);
-		imprimirCifrado(cadena, llave);
+		cifradoCiclico(cadena, llave);
 		//
 	} else {
 		printf("No Interactivo:\n");
-		imprimirCifrado(argv[1], argv[2][0] - '0');
+		cifradoCiclico(argv[1], argv[2][0] - '0');
 	}
 	
 	
@@ -35,7 +37,7 @@ int main(int argc, char **argv){
 }
 
 
-void imprimirCifrado(char cadena[], int llave){
+void cifradoCiclico(char cadena[], int llave){
 	int new_cadena[100];
 	printf("Mensaje Cifrado: ");
 	
@@ -54,4 +56,12 @@ void imprimirCifrado(char cadena[], int llave){
 
 void imprimirMorse(char cadena[]){
 
+}
+
+char* cifradoAutollave(char* mensaje, char* llave){
+	return "a";
+}
+
+char* cifradoContraseña(char* mensaje, char* llave){
+	return "b";
 }
